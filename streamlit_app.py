@@ -195,8 +195,6 @@ if rfm_response.choices[0]["message"].get("function_call"):
         monetary_value_column=col_for_m
     )
     if function_response is not None:
-        st.write(function_response)
-        st.scatter_chart(data=function_response, x="Recency", y="Frequency", color="MonetaryValue")
         r_iqr = abs(function_response["Recency"].quantile(0.75) - function_response["Recency"].quantile(0.25))
         r_bin_width = math.ceil(r_iqr / 2 + 0.00001)
         r_bins = (function_response["Recency"].max() - function_response["Recency"].min()) // r_bin_width
@@ -210,8 +208,9 @@ if rfm_response.choices[0]["message"].get("function_call"):
 
         fig = px.scatter(rfm_, x="Recency", y="Frequency", color="R")
         fig.update_layout(title="Recency vs Frequency by Recency score")
-        st.write(fig)
+        st.plotly_chart(fig)
 
         fig = px.scatter(rfm_, x="Recency", y="Frequency", color="F")
         fig.update_layout(title="Recency vs Frequency by Frequency score")
-        st.write(fig)
+        st.plotly_chart(fig)
+

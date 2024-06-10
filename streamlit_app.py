@@ -6,20 +6,6 @@ import re
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import Chroma
-from langchain.chains import RetrievalQA
-from langchain.chat_models import ChatOpenAI
-from langchain.document_loaders import UnstructuredHTMLLoader
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.agents.agent_toolkits import create_retriever_tool
-from langchain.agents.openai_functions_agent.agent_token_buffer_memory import AgentTokenBufferMemory
-from langchain.memory import ConversationBufferMemory
-from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
-from langchain.agents.openai_functions_agent.base import OpenAIFunctionsAgent
-from langchain.schema.messages import SystemMessage
-from langchain.prompts import MessagesPlaceholder
-from langchain.chains import ConversationalRetrievalChain
 import pandas as pd
 import json
 import math
